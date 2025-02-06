@@ -6,25 +6,9 @@ const Navbar = () => {
       <li className="text-xl font-serif">
         <NavLink
           className={({ isActive }) => (isActive ? "border-b-2" : "")}
-          to="/"
+          to="/dashboard"
         >
-          Home
-        </NavLink>
-      </li>
-      <li className="text-xl font-serif">
-        <NavLink
-          className={({ isActive }) => (isActive ? "border-b-2" : "")}
-          to="/allUsers"
-        >
-          Users
-        </NavLink>
-      </li>
-      <li className="text-xl font-serif">
-        <NavLink
-          className={({ isActive }) => (isActive ? "border-b-2" : "")}
-          to="/allProducts"
-        >
-          Products
+          Dashboard
         </NavLink>
       </li>
     </>
