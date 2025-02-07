@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import SingleProduct from "./SingleProduct";
+import Swal from "sweetalert2";
 
 const AllProducts = () => {
     const [products, setProducts] = useState([]);
@@ -12,7 +13,18 @@ const AllProducts = () => {
             setLoading(false);
         })
     },[]);
-    console.log(products);
+    const handleDelete = (id) => {
+        fetch(`https://api.restful-api.dev/objects/${id}`, {
+            method: "DELETE",
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                const remaining = products.filter((product) => product.id !== id);
+                setProducts(remaining);
+                Swal.fire("Deleted!", "Your product has been deleted.", "success");
+            });
+    }
+    //console.log(products);
     if(loading){
         return (
             <div className="flex justify-center items-center h-screen">
@@ -26,7 +38,7 @@ const AllProducts = () => {
             <div className="divider mb-5"></div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
                 {
-                    products.map(product => <SingleProduct key={product.id} product={product}></SingleProduct>)
+                    products.map(product => <SingleProduct key={product.id} product={product} handleDelete={handleDelete}></SingleProduct>)
                 }
             </div>
         </div>
