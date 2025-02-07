@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { data } from "react-router-dom";
 import SingleUser from "./SingleUser";
 
 const AllUsers = () => {
@@ -12,11 +11,13 @@ const AllUsers = () => {
         setUsers(data);
         setLoading(false);
       });
-  });
+  },[users]);
   //console.log(users);
   if (loading) {
     return (
-      <progress className="progress w-56 flex justify-center items-center mx-auto mt-16"></progress>
+      <div className="flex justify-center items-center h-screen">
+      <progress className="progress w-56"></progress>
+    </div>
     );
   }
   return (

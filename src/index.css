@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
-@theme{
-    poppins:"'Poppins', sans-serif",
-    roboto:"'Roboto', sans-serif",
-    montserrat:"'Montserrat', sans-serif"
-}
+@theme {
+    --font-poppins: "Poppins", sans-serif;
+    --font-roboto: "Roboto", sans-serif;
+    --font-montserrat: "Montserrat", sans-serif;
+  }

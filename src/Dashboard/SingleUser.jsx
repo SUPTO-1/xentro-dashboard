@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const SingleUser = ({ user }) => {
   //console.log(user);
   const { name, email, address } = user;
@@ -12,7 +14,7 @@ const SingleUser = ({ user }) => {
           <b>City:</b> {address.city}
         </p>
         <div className="card-actions">
-          <button className="btn btn-primary">See More</button>
+          <Link to={`/dashboard/userDetails/${user.id}`}><button className="btn btn-primary">See More</button></Link>
         </div>
       </div>
     </div>
